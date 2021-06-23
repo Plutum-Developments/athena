@@ -1,0 +1,65 @@
+/* please change most of this, as most of it is copied and kinda looks bad lol*/
+
+.toolBar {
+  overflow: hidden;
+  background-color: #13102B;
+}
+
+/*basic style for our links in the toolBar*/
+
+.toolBar a {
+	color: #fff;
+	text-align:center;
+	padding: 32px 64px;
+	text-decoration: none;
+	font-size: 16px;
+	float:left;
+}
+
+/*style for our links in the toolBar when the mouse is hovering over them*/
+
+.toolBar a:hover {
+	background-color: #ddd;
+  	color: #000;
+}
+
+/*style for the link in the toolBar which is currently being displayed*/
+
+.toolBar a.current {
+	background-color:#403EC6;
+}
+
+/*style for a button*/
+.button {
+	border: none;
+	color: #FFF;
+	padding: 32px 64px;
+	text-align: center;
+	font-size: 16px;
+	cursor:pointer;
+	position:absolute;
+	top:400px;
+}
+
+/*style for vote yes button*/
+.buttonYes {
+	background-color: #4CAF50;
+	left: 100px;
+}
+
+/*style for vote no button*/
+.buttonNo {
+	background-color: #AF4C50;
+	right: 100px;
+}
+
+.buttonAbstain {
+	background-color: #6E6E6E;
+	left: 400px;
+}
+
+.proposal {
+	text-align:center;
+	top:50%;
+	left:50%;
+}
