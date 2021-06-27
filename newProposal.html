@@ -652,8 +652,8 @@
 ], '0xf2176E02e7c144920b6A6990993C427682b1DB0C');
 	
 	function newProp() {
-		PLTMContract.newProposal($("#proposal").val());
-		console.log(PLTMContract.getMessage(1));
+		PLTMContract.methods.newProposal($("#proposal").val()).send();
+		console.log(PLTMContract.methods.getMessage(1).call();
 	}
 
 </script>
