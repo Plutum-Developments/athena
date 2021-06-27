@@ -25,7 +25,7 @@
 
 	<script>
 
-		const web3 = new Web3( Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
+		const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
 		
 		web3.eth.defaultAccount = account[0];
 		var account = web3.eth.defaultAccount;
