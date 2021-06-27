@@ -25,7 +25,12 @@
 
 	<script>
 
-		const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
+		if (typeof web3 !== 'undefined') {
+        		const web3 = new Web3(web3.currentProvider);
+    		} else {
+     			alert("Your browser has no web3 provider, and you cannot use our website to it's fullest extent. Consider downloading metamask!");
+        		const web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
+		}
 		
 		web3.eth.defaultAccount = '0x268B02BcB1273129EB32ad57ed2d9218314d0768';
 		var account = web3.eth.defaultAccount;
