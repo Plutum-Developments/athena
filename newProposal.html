@@ -27,12 +27,16 @@
 		
 		if (typeof web3 !== 'undefined') {
         		window.web3 = new Web3(web3.currentProvider);
+			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  			const account = accounts[0];
+			window.web3.eth.defaultAccount = accounts[0];
     		} else {
      			alert("Your browser has no web3 provider, and you cannot use our website to it's fullest extent. Consider downloading metamask!");
         		window.web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
 		}
 		
-		window.web3.eth.defaultAccount = '0x268B02BcB1273129EB32ad57ed2d9218314d0768';
+		//window.web3.eth.defaultAccount = '0x268B02BcB1273129EB32ad57ed2d9218314d0768';
+		console.log(window.web3.eth.defaultAccount);
 
 	var PLTMContract = new window.web3.eth.Contract([
 	{
