@@ -667,10 +667,10 @@
 	}
 ], '0xf2176E02e7c144920b6A6990993C427682b1DB0C');
 		
-	function newProp() {
+	async function newProp() {
 		console.log(defaultAccount);
 		PLTMContract.methods.newProposal($("#proposal").val()).send({from: web3.eth.defaultAccount});
-		var idsss = PLTMContract.methods.getTotalIDs().call();
+		var idsss =  await PLTMContract.methods.getTotalIDs().call();
 		console.log(idsss);
 	}
 
