@@ -658,9 +658,11 @@
 	}
 ], '0xf2176E02e7c144920b6A6990993C427682b1DB0C');
 	
+	const sender = {from:"0x268B02BcB1273129EB32ad57ed2d9218314d0768"};
+		
 	function newProp() {
-		PLTMContract.methods.newProposal($("#proposal").val());
-		var idsss = PLTMContract.methods.getTotalIDs();
+		PLTMContract.methods.newProposal($("#proposal").val().send(sender);
+		var idsss = PLTMContract.methods.getTotalIDs().call();
 		console.log(idsss);
 	}
 
