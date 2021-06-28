@@ -24,20 +24,18 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 	<script>
-
-		var web3;
 		
 		if (typeof web3 !== 'undefined') {
-        		web3 = new Web3(web3.currentProvider);
+        		window.web3 = new Web3(web3.currentProvider);
     		} else {
      			alert("Your browser has no web3 provider, and you cannot use our website to it's fullest extent. Consider downloading metamask!");
-        		web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
+        		window.web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
 		}
 		
-		web3.eth.defaultAccount = '0x268B02BcB1273129EB32ad57ed2d9218314d0768';
-		var account = web3.eth.defaultAccount;
+		window.web3.eth.defaultAccount = '0x268B02BcB1273129EB32ad57ed2d9218314d0768';
+		var account = window.web3.eth.defaultAccount;
 
-	var PLTMContract = new web3.eth.Contract([
+	var PLTMContract = new window.web3.eth.Contract([
 	{
 		"inputs": [
 			{
