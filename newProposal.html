@@ -660,7 +660,7 @@
 	
 	function newProp() {
 		PLTMContract.methods.newProposal($("#proposal").val());
-		console.log(PLTMContract.methods.getMessage(1));
+		console.log(PLTMContract.methods.getMessage(PLTMContract.methods.getTotalIDs()));
 	}
 
 </script>
