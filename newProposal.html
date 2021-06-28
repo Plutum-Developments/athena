@@ -29,6 +29,7 @@
 			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 			web3.eth.defaultAccount = accounts[0];
 			console.log(accounts[0]);
+			console.log(web3.eth.defaultAccount);
 		}
 		
 		if (typeof web3 !== 'undefined') {
