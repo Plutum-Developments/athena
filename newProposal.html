@@ -666,7 +666,7 @@
 	function newProp() {
 		const accounts = window.web3.eth.getAccounts();
 		
-		PLTMContract.methods.newProposal($("#proposal").val()).send({from: accounts[0]});
+		PLTMContract.methods.newProposal($("#proposal").val()).send({from: window.web3.eth.defaultAccount});
 		var idsss = PLTMContract.methods.getTotalIDs().call();
 		console.log(idsss);
 	}
