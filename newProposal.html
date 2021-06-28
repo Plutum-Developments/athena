@@ -669,7 +669,8 @@
 		
 	async function newProp() {
 		console.log(defaultAccount);
-		PLTMContract.methods.newProposal($("#proposal").val()).send({from: web3.eth.defaultAccount});
+		var inputin = document.getElementById("proposal").value;
+		await PLTMContract.methods.newProposal(inputin).send({from: web3.eth.defaultAccount});
 		var idsss =  await PLTMContract.methods.getTotalIDs().call();
 		console.log(idsss);
 	}
