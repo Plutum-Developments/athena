@@ -25,16 +25,16 @@
 
 	<script>
 		
-		async function setAccount(){
+		async function getAccount(){
 			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-			web3.eth.defaultAccount = accounts[0];
-			console.log(accounts[0]);
-			console.log(web3.eth.defaultAccount);
+			return accounts[0];
+			//console.log(accounts[0]);
+			//console.log(web3.eth.defaultAccount);
 		}
 		
 		if (typeof web3 !== 'undefined') {
         		web3 = new Web3(web3.currentProvider);
-			setAccount();
+			web3.eth.defaultAccount = getAccount();
     		} else {
      			alert("Your browser has no web3 provider, and you cannot use our website to it's fullest extent. Consider downloading metamask!");
         		web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
