@@ -672,7 +672,7 @@
 		var id = parseInt(idStr);
 		console.log(id);
 		
-		document.getElementById('proposal').innerHTML = PLTMContract.methods.getMessage(id);
+		document.getElementById('proposal').innerHTML = PLTMContract.methods.getMessage(id).call();
 		
 	var deposit = PLTMContract.methods.getDeposit(id).call();
 		if(deposit){
