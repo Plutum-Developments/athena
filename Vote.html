@@ -672,7 +672,7 @@
 		var id = parseInt(idStr.split("&"));
 		console.log(id);
 		
-		document.getElementById('proposal').innerHTML = PLTMContract.get(id);
+		document.getElementById('proposal').innerHTML = PLTMContract.methods.getMessage(id);
 		
 	var deposit = PLTMContract.methods.getDeposit(id).call();
 		if(deposit){
@@ -682,8 +682,8 @@
 		}
 
 	function vote(decision){
-		var numVotes = PLTMContract.balanceOfVotes(defaultAccount);
-		PLTMContract.vote(numVotes, id, decision, defaultAccount);
+		var numVotes = PLTMContract.methods.balanceOfVotes(web3.eth.defaultAccount).call();
+		PLTMContract.vote(numVotes, id, decision, web3.eth.defaultAccount).send({from: web3.eth.defaultAccount});
 	}
 
 	</script>
