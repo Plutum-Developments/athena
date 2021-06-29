@@ -18,16 +18,31 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<ul id="propList"></ul>
+	<ul 
+	    ="propList"></ul>
 
 	<script>
     
-		var web3 =  = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
+		var defaultAccount;
 		
-		web3.eth.defaultAccount = account[0];
-		var account = web3.eth.defaultAccount;
+		async function getAccount(){
+			const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+			console.log(accounts[0]);
+			web3.eth.defaultAccount = accounts[0];
+			defaultAccount = accounts[0];
+			//console.log(web3.eth.defaultAccount);
+		}
+		
+		if (typeof web3 !== 'undefined') {
+        		web3 = new Web3(web3.currentProvider);
+			getAccount();
+			console.log(defaultAccount);
+    		} else {
+     			alert("Your browser has no web3 provider, and you cannot use our website to it's fullest extent. Consider downloading metamask!");
+        		web3 = new Web3(new Web3.providers.HttpProvider('https://ropsten.infura.io/v3/776aed415f45451f93b78724d3cdabbe'));
+		}
 
-var PLTMContract = web3.eth.contract([
+var PLTMContract = new web3.eth.Contract([
 	{
 		"inputs": [
 			{
@@ -646,19 +661,20 @@ var PLTMContract = web3.eth.contract([
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-]);
-
-	//May have to change every time we test
-	var PLTM = PLTMContract.at('0xf2176E02e7c144920b6A6990993C427682b1DB0C');
+], '0xf2176E02e7c144920b6A6990993C427682b1DB0C');
 
 	function changePage(id){
 		var idStr = "?para1=" + id;
 		window.location.href = "Vote.html" + idStr;
 	}
-
-	var list = PLTM.getTotalIDs;
-	for (var prop in list) {
-    document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + id + ')">' prop + '</a>' '</li>';
+	async function setUpList(){
+		var list = PLTM.methods.getTotalIDs().call();
+		var msg;
+		for (var i = 1; i <= list; i++) {
+			msg = PLTM.methods.getMessage(i).call();
+			document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + i + ')">' prop + '</a>' '</li>';
+		}
+	}
   }
 
 	</script>
