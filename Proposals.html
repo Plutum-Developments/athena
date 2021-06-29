@@ -5,7 +5,7 @@
 	<title>Athena</title>
 
 	<link rel="stylesheet" type="text/css" href="mainNew.css">
-	<script src="./node_modules/web3/dist/web3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
 </head>
 <body>
@@ -672,7 +672,7 @@ var PLTMContract = new web3.eth.Contract([
 		var msg;
 		for (var i = 1; i <= list; i++) {
 			msg = PLTM.methods.getMessage(i).call();
-			document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + i + ')">' prop + '</a>' '</li>';
+			document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + i + ')">' + prop + '</a>' + '</li>';
 		}
 	}
   }
