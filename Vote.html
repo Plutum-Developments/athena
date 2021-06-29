@@ -667,9 +667,9 @@
 ], '0xf2176E02e7c144920b6A6990993C427682b1DB0C');
 
 		var idStr = decodeURIComponent(window.location.search);
-		idStr = idStr.substring(1);
+		idStr = idStr.substring(7);
 		console.log(idStr);
-		var id = parseInt(idStr.split("&"));
+		var id = parseInt(idStr);
 		console.log(id);
 		
 		document.getElementById('proposal').innerHTML = PLTMContract.methods.getMessage(id);
