@@ -675,7 +675,7 @@ var PLTMContract = new web3.eth.Contract([
 		for (var i = 1; i <= list; i++) {
 			console.log("hello" + i);
 			msg = await PLTMContract.methods.getMessage(i).call();
-			document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + i + ')">' + prop + '</a>' + '</li>';
+			document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + i + ')">' + msg + '</a>' + '</li>';
 		}
 	}
 		
