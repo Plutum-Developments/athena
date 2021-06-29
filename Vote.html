@@ -17,6 +17,10 @@
 	</div>
 
 	<h2 id="proposal">Question</h2>
+	
+	<h5 class="votes" id="votesYes"></h5>
+	<h5 class="votes" id="abstains"></h5>
+	<h5 class="votes" id="votesNo"></h5>
 
 	<button class="button" id= "buttonYes" onclick="vote(1)">Yes</button>
 	<button class= "button" id = "buttonAbstain" onclick="vote(2)">Abstain</button>
@@ -672,19 +676,32 @@
 		var id = parseInt(idStr);
 		console.log(id);
 		
-		async function setQuestion(){
+		async function setDetails(){
 			var msg = await PLTMContract.methods.getMessage(id).call();
 			document.getElementById('proposal').innerHTML = msg;
+			
+					
+			var deposit = PLTMContract.methods.getDeposit(id).call();
+			if(deposit){
+				//var depositVotes = PLTMContract.methods.get;
+				document.getElementById('buttonNo').remove();
+				document.getElementById('buttonAbstain').remove();
+				document.getElementById('buttonYes').innerHTML = 'Deposit Votes';
+				document.getElementById('votesYes').remove();
+				document.getElementById('votesNo').remove();
+				//document.getElementById('abstain').innerHTML = 'Deposit Votes: ' + ;
+			} else {
+				var yes = await PLTMContract.methods.getYesVotes().call();
+				var no = await PLTMContract.methods.getNoVotes().call();
+				var abstains = await PLTMContract.methods.getAbstains().call();
+				document.getElementById('votesYes').innerHTML = 'Votes for: ' + yes;
+				document.getElementById('votesNo').innerHTML = 'Votes against: ' + no;
+				document.getElementById('abstain').innerHTML = 'abstains: ' + abstains;
+			}
+			
 		}
 		
-		setQuestion();
-		
-	var deposit = PLTMContract.methods.getDeposit(id).call();
-		if(deposit){
-			document.getElementById('buttonNo').remove();
-			document.getElementById('buttonAbstain').remove();
-			document.getElementById('buttonYes').innerHTML = 'Deposit Votes';
-		}
+		setDetails();
 
 	function vote(decision){
 		var numVotes = PLTMContract.methods.balanceOfVotes(web3.eth.defaultAccount).call();
