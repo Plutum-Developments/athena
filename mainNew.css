@@ -63,3 +63,20 @@
 	top:50%;
 	left:50%;
 }
+
+.votes {
+	text-align:center;
+	top:60%;
+}
+
+#votesYes{
+	left:30%
+}
+
+#abstains{
+	left:50%
+}
+
+#votesNo{
+	left:70%
+}
