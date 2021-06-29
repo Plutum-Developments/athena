@@ -667,11 +667,12 @@ var PLTMContract = new web3.eth.Contract([
 		var idStr = "?para1=" + id;
 		window.location.href = "Vote.html" + idStr;
 	}
+		
 	async function setUpList(){
-		var list = PLTM.methods.getTotalIDs().call();
+		var list = PLTMContract.methods.getTotalIDs().call();
 		var msg;
 		for (var i = 1; i <= list; i++) {
-			msg = PLTM.methods.getMessage(i).call();
+			msg = PLTMContract.methods.getMessage(i).call();
 			document.getElementById('propList').innerHTML += '<li>' + '<a onclick="changePage(' + i + ')">' + prop + '</a>' + '</li>';
 		}
 	}
