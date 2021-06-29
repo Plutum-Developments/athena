@@ -672,13 +672,18 @@
 		var id = parseInt(idStr);
 		console.log(id);
 		
-		document.getElementById('proposal').innerHTML = PLTMContract.methods.getMessage(id).call();
+		async function setQuestion(){
+			var msg = await PLTMContract.methods.getMessage(id).call();
+			document.getElementById('proposal').innerHTML = msg;
+		}
+		
+		setQuestion();
 		
 	var deposit = PLTMContract.methods.getDeposit(id).call();
 		if(deposit){
 			document.getElementById('buttonNo').remove();
 			document.getElementById('buttonAbstain').remove();
-			document.getElementById('buttonNo').innerHTML = "Deposit Votes";
+			document.getElementById('buttonNo').innerHTML = 'Deposit Votes;;
 		}
 
 	function vote(decision){
