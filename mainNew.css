@@ -42,18 +42,18 @@
 }
 
 /*style for vote yes button*/
-.buttonYes {
+#buttonYes {
 	background-color: #4CAF50;
 	left: 100px;
 }
 
 /*style for vote no button*/
-.buttonNo {
+#buttonNo {
 	background-color: #AF4C50;
 	right: 100px;
 }
 
-.buttonAbstain {
+#buttonAbstain {
 	background-color: #6E6E6E;
 	left: 400px;
 }
