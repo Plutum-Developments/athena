@@ -54,6 +54,30 @@
 		"inputs": [
 			{
 				"internalType": "uint256",
+				"name": "_numVotes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "addDepositVotes",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
 				"name": "_initialSupply",
 				"type": "uint256"
 			}
@@ -112,79 +136,6 @@
 		"type": "event"
 	},
 	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"internalType": "uint256",
-				"name": "_value",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_numVotes",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			}
-		],
-		"name": "addDepositVotes",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_spender",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "remaining",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -235,44 +186,6 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_owner",
-				"type": "address"
-			}
-		],
-		"name": "balanceOf",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "balance",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_owner",
-				"type": "address"
-			}
-		],
-		"name": "balanceOfVote",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "balance",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
 				"internalType": "uint256",
 				"name": "_numVotes",
 				"type": "uint256"
@@ -310,6 +223,222 @@
 			}
 		],
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_msg",
+				"type": "string"
+			}
+		],
+		"name": "newProposal",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_numVotes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "revokeVotes",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "transfer",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "_to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "_value",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_numVotes",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_decision",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "vote",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "_spender",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "remaining",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "balance",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_owner",
+				"type": "address"
+			}
+		],
+		"name": "balanceOfVote",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "balance",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -393,6 +522,25 @@
 				"internalType": "bool",
 				"name": "success",
 				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "getDepositVotes",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "success",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -501,48 +649,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "string",
-				"name": "_msg",
-				"type": "string"
-			}
-		],
-		"name": "newProposal",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_numVotes",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "revokeVotes",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "symbol",
 		"outputs": [
@@ -580,95 +686,8 @@
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_value",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_value",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_numVotes",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_decision",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "vote",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "success",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	}
-], '0xf2176E02e7c144920b6A6990993C427682b1DB0C');
+], '0x2F5290a0f98a3FC96A6F27eD4D7973629d90D5DC');
 
 		var idStr = decodeURIComponent(window.location.search);
 		idStr = idStr.substring(7);
@@ -683,13 +702,13 @@
 					
 			var deposit = PLTMContract.methods.getDeposit(id).call();
 			if(deposit){
-				//var depositVotes = PLTMContract.methods.get;
+				var depositVotes = PLTMContract.methods.getDepositVotes(id).call();
 				document.getElementById('buttonNo').remove();
 				document.getElementById('buttonAbstain').remove();
 				document.getElementById('buttonYes').innerHTML = 'Deposit Votes';
 				document.getElementById('votesYes').remove();
 				document.getElementById('votesNo').remove();
-				//document.getElementById('abstain').innerHTML = 'Deposit Votes: ' + ;
+				document.getElementById('abstain').innerHTML = 'Deposit Votes: ' + depositVotes;
 			} else {
 				var yes = await PLTMContract.methods.getYesVotes().call();
 				var no = await PLTMContract.methods.getNoVotes().call();
