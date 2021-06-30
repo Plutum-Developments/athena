@@ -686,7 +686,7 @@ var PLTMContract = new web3.eth.Contract([
 	}
 ], '0x2F5290a0f98a3FC96A6F27eD4D7973629d90D5DC');
     
-    function approveVote() {
+    async function approveVote() {
       var inputin = document.getElementById("address").value;
       var numVotes = await PLTMContract.methods.balanceOfVotes(web3.eth.defaultAccount).call();
       PLTMContract.methods.vote(inputin, numVotes).send({from: web3.eth.defaultAccount});
