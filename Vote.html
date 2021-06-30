@@ -723,7 +723,7 @@
 		setDetails();
 
 	function vote(decision){
-		var numVotes = PLTMContract.methods.balanceOfVotes(web3.eth.defaultAccount).call();
+		var numVotes = await PLTMContract.methods.balanceOfVotes(web3.eth.defaultAccount).call();
 		PLTMContract.methods.vote(numVotes, id, decision, web3.eth.defaultAccount).send({from: web3.eth.defaultAccount});
 	}
 
